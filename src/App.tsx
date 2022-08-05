@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import Counter from './bases/Counter'
 import CounterBy from './bases/CounterBy'
+import CounterEffect from './bases/CounterEffect'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +32,7 @@ function App() {
       </p>
       <Counter initialValue={2} />
       <CounterBy />
+      <CounterEffect />
     </div>
   )
 }
