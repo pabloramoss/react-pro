@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from "gsap"
 
 const MAXIMUN_VALUE = 10
 
 const CounterEffect: React.FC = ()=> {
+  //With useRef, we are getting the reference of that specific node
+  const counterElement = useRef<HTMLHeadingElement>(null)
   const [counter,setCounter] = useState(5)
 
   const handleClick = () => {
-    setCounter(prev => prev + 1)
+    setCounter(prev => prev + 1) 
 
   }
 
   useEffect(() => {
     if (counter < MAXIMUN_VALUE) return
 
-    else {
       console.error("Valor maximo alcanzado")
 
-      // Gsap function are promises
-      gsap.to("h2",{ y: -10, duration: 0.4, ease: "ease.out"}).then(() => {
-        gsap.to("h2", { y: 0, duration: 1, ease: "bounce.out"})
-      })
-    }
+      const timeline = gsap.timeline()
+
+      timeline.to(counterElement.current,{ y: -10, duration: 0.4, ease: "ease.out"})
+      timeline.to(counterElement.current, { y: 0, duration: 1, ease: "bounce.out"})
+
   }, [counter])
   
   return(
     <div>
       <h1>CounterEffect:</h1>
-      <h2>{counter}</h2>
+      <h2 ref={counterElement}>{counter}</h2>
       <button onClick={handleClick}>+1</button>
     </div>
   )
