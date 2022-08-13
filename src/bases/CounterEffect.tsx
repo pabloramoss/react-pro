@@ -9,7 +9,7 @@ const CounterEffect: React.FC = ()=> {
   const [counter,setCounter] = useState(5)
 
   const handleClick = () => {
-    setCounter(prev => prev + 1) 
+    setCounter( prev => Math.min( prev + 1, MAXIMUN_VALUE)) 
 
   }
 
