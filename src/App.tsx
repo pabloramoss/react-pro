@@ -7,13 +7,15 @@ import CounterEffect from './bases/CounterEffect'
 import CounterHook from './bases/CounterHook'
 // import CounterReducerComponent from './bases/CounterReducerComponent'
 import CounterReducerComponent from "./counter-reducer/CounterReducerComponent"
+import Navigation from './routes/Navigation'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <div>
+      <Navigation />
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
@@ -37,7 +39,7 @@ function App() {
       <CounterBy />
       <CounterEffect />
       <CounterHook />
-      <CounterReducerComponent />
+      <CounterReducerComponent /> */}
     </div>
   )
 }
